@@ -37,7 +37,7 @@
 			<a class="btn btn-success" data-toggle="modal" data-target="#nuevoUsu">Nuevo Contacto</a><br><br>
 			<table class='table'>
 				<tr>
-					<th>Id</th><th>Nombre</th><th>Edad</th><th>Direccion</th><th>Fecha</th><th><span class="glyphicon glyphicon-wrench"></span></th>
+					<th>Id</th><th>Nombre</th><th>Edad</th><th>Direccion</th><th>Fecha</th><th>Acciones</th>
 				</tr>			
 <?php
 			$mysqli = new mysqli("localhost", "root", "root", "testphp");		
@@ -47,9 +47,11 @@
 			}
 			$consulta= "SELECT * FROM tbcontactos";
 			if ($resultado = $mysqli->query($consulta)) 
+			
 			{
 				while ($fila = $resultado->fetch_row()) 
-				{					
+				{	
+					//echo $fila[4];
 					echo "<tr>";
 					echo "<td>$fila[0]</td><td>$fila[1]</td><td>$fila[2]</td><td>$fila[3]</td><td>$fila[4]</td>";	
 					echo"<td>";						
@@ -75,7 +77,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4>Nuevo Contacto</h4>                       
+                        <h4>Nuevo</h4>                       
                     </div>
                     <div class="modal-body">
                        <form action="insertar.php" method="GET">              		
@@ -114,7 +116,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4>Editar Contactnnnno</h4>
+                        <h4>Editar</h4>
                     </div>
                     <div class="modal-body">                      
                        <form action="actualiza.php" method="POST">                       		
@@ -129,19 +131,20 @@
 		                       			<input class="form-control" id="edad" name="edad" type="text" ></input>
 		                       		</div>
 		                       		<div class="form-group">
-		                       			<label for="direccion">Direccion:111</label>
+		                       			<label for="direccion">Direccion:</label>
 		                       			<input class="form-control" id="direccion" name="direccion" type="text" ></input>
 									</div>
 									
 									<div class="form-group">
-                       					<label for="fecha">Fecha:</label>
-								   		<input type="date" id="fecha" name="fecha" >
-								   
-    		                   		</div>
+		                       			<label for="fecha">Fecha:</label>
+		                       			<input class="form-control" id="fecha" name="fecha" type="date" ></input>
+									</div>
+
+									
 
 
 
-									<input type="submit" class="btn btn-success">							
+									<input type="submit" class="btn btn-success"  value="Guardar">							
                        </form>
                     </div>
                     <div class="modal-footer">
@@ -163,6 +166,7 @@
 		  var recipient1 = button.data('nombre')
 		  var recipient2 = button.data('edad')
 		  var recipient3 = button.data('direccion')
+		  var recipient4 = button.data('fecha')
 		   // Extract info from data-* attributes
 		  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 		  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
@@ -171,7 +175,9 @@
 		  modal.find('.modal-body #id').val(recipient0)
 		  modal.find('.modal-body #nombre').val(recipient1)
 		  modal.find('.modal-body #edad').val(recipient2)
-		  modal.find('.modal-body #direccion').val(recipient3)		 
+		  modal.find('.modal-body #direccion').val(recipient3)	
+		  modal.find('.modal-body #fecha').val(recipient4)	
+
 		});
 		
 	</script>
