@@ -1,8 +1,3 @@
-<?php
-	session_start();
-	if(isset($_SESSION['nombreusu']))
-	{
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +13,7 @@
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-fm">
-						<span class="sr-only">Desplegar / Ocultar Menu</span>	
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a href="#" class="navbar-brand">Contactos</a>
+					<a href="#" class="navbar-brand">Prueba de PHP_WEB_CRUD</a>
 				</div>
 				
 			</div>
@@ -184,13 +173,3 @@
 	
 </body>
 </html>
-
-<?php
-	}
-	else
-	{
-		?>
-		 <META HTTP-EQUIV="Refresh" CONTENT="0; URL=index.php">
-		 <?php
-	}
-?>
